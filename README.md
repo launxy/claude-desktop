@@ -1,16 +1,13 @@
-# github-desktop
+# claude-desktop
 
-Cliente de Electron para navegar por [GitHub](https://github.com) en Linux como app de escritorio. Empaqueta la web en una ventana nativa usando el `electron` del sistema (no el binario descargado por npm).
-
-> Nota: no tiene relación con la app oficial "GitHub Desktop" de GitHub Inc. Es un wrapper propio de la web.
+Cliente de Electron de [Claude.ai](https://claude.ai) para Linux. Envuelve la web app en una ventana nativa, sin depender de binarios de Electron descargados por npm (usa el paquete `electron` del sistema).
 
 ## Características
 
 - Ventana nativa con icono, menú y entrada en el launcher del sistema.
-- Tema oscuro (`#0d1117`, el color oficial de GitHub) desde el arranque.
-- Solo permite navegación dentro de `github.com`, `gist.github.com` y `github.blog`; cualquier otro enlace se abre en el navegador predeterminado.
+- Solo permite navegación dentro de `claude.ai` y los dominios de autenticación de Anthropic (`accounts.anthropic.com`, `auth.anthropic.com`, `www.anthropic.com`); cualquier otro enlace se abre en el navegador predeterminado.
 - Contexto aislado (`contextIsolation: true`, `nodeIntegration: false`), sin `webview` ni superficie insegura expuesta.
-- Atajos: `F5` recargar, `Ctrl+H` ir al inicio, `F12` DevTools, `Ctrl+Q` salir.
+- Atajos: `F5` recargar, `Ctrl+N` nueva conversación, `F12` DevTools, `Ctrl+Q` salir.
 
 ## Requisitos
 
@@ -28,24 +25,24 @@ sudo apt install electron
 ## Instalación
 
 ```bash
-git clone https://github.com/launxy/github-desktop.git
-cd github-desktop/GitHub-desktop
+git clone https://github.com/launxy/claude-desktop.git
+cd claude-desktop/claude-desktop
 chmod +x install.sh
 ./install.sh
 ```
 
-Esto instala la app en `~/.local/share/github-desktop-electron`, crea el lanzador `github-app` en `~/.local/bin` y añade una entrada `.desktop` en `~/.local/share/applications`.
+Esto instala la app en `~/.local/share/claude-desktop`, crea el lanzador `claude` en `~/.local/bin` y añade una entrada `.desktop` en `~/.local/share/applications`.
 
 Lanzar con:
 
 ```bash
-github-app
+claude
 ```
 
 ## Desinstalación
 
 ```bash
-cd github-desktop/GitHub-desktop
+cd claude-desktop/claude-desktop
 chmod +x uninstall.sh
 ./uninstall.sh
 ```
@@ -53,7 +50,7 @@ chmod +x uninstall.sh
 ## Estructura
 
 ```
-GitHub-desktop/
+claude-desktop/
 ├── main.js         # Proceso principal de Electron
 ├── preload.js      # Script de precarga, contexto aislado
 ├── icon.png        # Icono de la app
@@ -63,4 +60,4 @@ GitHub-desktop/
 
 ## Notas
 
-Este proyecto no está afiliado a GitHub ni a Microsoft. Es un empaquetado no oficial de la web para tener un cliente de escritorio en Linux.
+Este proyecto no está afiliado a Anthropic. Es simplemente un empaquetado no oficial de la web app para tener un cliente de escritorio en Linux.
